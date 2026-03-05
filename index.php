@@ -13,12 +13,32 @@
 <body>
     <?php
         try {
+            //példányosítás
             $adatbazis = new AB();
             echo "Sikerült a kapcsolat";
         } catch (Exception $e) {
             echo $e->getMessage();
         }
-        $adatbazis->kapcsolatLezar();
+        echo"<br>";
+        echo $adatbazis->meret("szin");
+        $matrix = $adatbazis->oszlopLeker("kep","szin");
+        $adatbazis->megejelenit($matrix);
+
+        //$matrixNev = $adatbazis->oszlopLekerNev("nev","szin");
+        $adatbazis->megejelenitNev($adatbazis->oszlopLekerNev("kep","nev","szin"));
+
+        $tomb = $adatbazis->tombbeAlakit($matrix);
+        $adatbazis->tablazatKiir($tomb);
+
+        if ($adatbazis->meret("kartya") == 0) {
+            try {
+                $adatbazis->feltoltes();
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+        }
+
+        $adatbazis->kapcsolatLezar("szin", "nev");
     ?>
 </body>
 </html>
