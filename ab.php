@@ -77,7 +77,7 @@ class AB
     public function kartyakMegjelenitese($objektumLista)
     {
         //külős/teljes div
-        echo "<div>";
+        echo "<div id='keret'>";
         for ($i = 0; $i < count($objektumLista); $i++) {
             if ($i % 8 == 0) {
                 //sor nyitó
@@ -89,6 +89,7 @@ class AB
                 echo $forma; */
             echo "<div><img src='forras/$szin'alt=''></div>";
             echo "<div>$forma</div>";
+            /* echo "<div><img src="."forras/".$objektumLista[$i]->getSzin()." alt='szin'></div>"; */
             if ($i % 8 == 7) {
                 //sor záró
                 echo "</div>";
