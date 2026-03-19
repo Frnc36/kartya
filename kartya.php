@@ -3,7 +3,7 @@ class Kartya
 {
     //adattagok
     private $szin; //tábla vagy egy mező
-    private $forma;
+    private $forma; //szülö táblák, kapcsoló nem
 
     //tagfüggvények
     //konstruktor
