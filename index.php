@@ -44,6 +44,8 @@ require_once "ab.php";
     $matrix = $adatbazis->kartyakBeolvas();
     $kartyak = $adatbazis->kartyakObjektumban($matrix);
     $adatbazis->kartyakMegjelenitese($kartyak);
+    $adatbazis->foramtorol(3);
+
 
     $adatbazis->kapcsolatLezar("szin", "nev");
     ?>

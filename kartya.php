@@ -6,6 +6,13 @@ class Kartya
     private $forma;
 
     //tagfüggvények
+    //konstruktor
+    public function __construct($szin, $forma)
+    {
+        $this->szin = $szin;
+        $this->forma = $forma;
+    }
+
     public function getSzin()
     { //public function default
         return $this->szin;

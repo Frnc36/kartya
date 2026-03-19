@@ -64,10 +64,11 @@ class AB
     {
         $objektumLista = [];
         while ($sor = $matrix->fetch_assoc()) {
-            $kartya = new Kartya();
-            $kartya->setSzin($sor["kep"]);
-            $kartya->setForma($sor["nev"]);
+            $kartya = new Kartya($sor["kep"], $sor["nev"]);
+            /* $kartya->setSzin($sor["kep"]);
+            $kartya->setForma($sor["nev"]); */
             //echo $kartya;
+            //listába teszem a példányt
             $objektumLista[] = $kartya; //feltöltés
         }
         shuffle($objektumLista);
@@ -156,9 +157,19 @@ class AB
         return $this->kapcsolat->query($sql)->num_rows;
     }
 
+    public function foramtorol($id)
+    {
+        $sql = "DELETE
+                FROM kartya
+                WHERE kartya.formaAzon = $id;";
+        $this->kapcsolat->query($sql);
+    }
+
     //tagfüggvények fölött kell lennie VAGY lehet nen? 
     public function kapcsolatLezar()
     {
         $this->kapcsolat->close();
     }
+
+    //public torles, modositas hianyzik
 }
